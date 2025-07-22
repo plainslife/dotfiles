@@ -22,10 +22,6 @@ window#waybar {
     background: #1d2021;
     border: 2px solid #3c3836;
     box-shadow: inset 0px 0px 7px 1px rgba(0, 0, 0, 0.3);
-
-    /* Transparentk*/
-    /* background: transparent; */
-    /* box-shadow: none; */
 }
 
 tooltip {
@@ -79,7 +75,6 @@ tooltip {
 }
 
 #workspaces button.active {
-    /* box-shadow: inset 0 0px 2px #d4be98; */
     box-shadow: inset 0 0px 20px 10px #1d2021;
     color: #458588;
 }
@@ -93,7 +88,6 @@ tooltip {
     background-color: #303536;
     border: 2px solid #458588;
     color: #A89984;
-    /* border-radius: 7px; */
     box-shadow: inset 0px 0px 7px 1px rgba(0, 0, 0, 0.7);
 }
 
@@ -104,13 +98,11 @@ tooltip {
 
 #battery {
     background-color: #689D6A;
-    /* background-color: #C7AB7A; */
     color: #303536;
     box-shadow: inset 0px 0px 7px 1px rgba(0, 0, 0, 1);
 }
 
 #network {
-    /* background-color: #b16286; */
     background-color: #C7AB7A;
     color: #303536;
     box-shadow: inset 0px 0px 7px 1px rgba(0, 0, 0, 1);
@@ -118,22 +110,18 @@ tooltip {
 
 #wireplumber,
 #pulseaudio {
-    /* background-color: #98971A; */
     background-color: #D79921;
-    /* background-color: #C7AB7A; */
     color: #303536;
     box-shadow: inset 0px 0px 7px 1px rgba(0, 0, 0, 1);
 }
 
 #bluetooth {
     background-color: #458588;
-    /* background-color: #C7AB7A; */
     color: #303536;
     box-shadow: inset 0px 0px 5px 2px rgba(0, 0, 0, 0.7);
 }
 
 #custom-wallpaper {
-    /* background-color: #D79921; */
     background-color: #C7AB7A;
     color: #303536;
     box-shadow: inset 0px 0px 5px 3px rgba(0, 0, 0, 0.7);
