@@ -1,0 +1,16 @@
+title=ghostty
+theme = GruvboxDarkHard
+font-family = JetBrainsMono Nerd Font
+font-style = Medium
+font-feature = "zero"
+
+background-opacity = 0.8
+# background-blur = 20
+
+window-padding-x = 0
+window-decoration = server
+window-padding-y = 0
+window-padding-balance = false
+window-padding-color = background
+
+mouse-hide-while-typing = true

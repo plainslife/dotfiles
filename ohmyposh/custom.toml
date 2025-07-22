@@ -1,0 +1,73 @@
+console_title_template = '{{ .Shell }} in {{ .Folder }}'
+version = 3
+final_space = true
+
+[palette]
+  blue = 'blue'
+  g_aqua = '#689D6A'
+  g_blue = '#458588'
+  g_green = '#98971A'
+  g_orange = '#D65D0E'
+  g_purple = '#B16286'
+  g_red = '#CC241D'
+  g_yellow = '#D79921'
+  magenta = 'magenta'
+
+
+[[blocks]]
+  type = 'prompt'
+  alignment = 'left'
+  newline = true
+
+  # [[blocks.segments]]
+  #   template = ' <p:g_aqua>{{ .UserName }}</> <p:g_green>on</> <p:g_orange>{{ .HostName }}</>'
+  #   foreground = 'p:magenta'
+  #   background = 'transparent'
+  #   type = 'text'
+  #   style = 'plain'
+
+  [[blocks.segments]]
+    template = ' {{ .Path }}'
+    foreground = 'p:g_blue'
+    background = 'transparent'
+    type = 'path'
+    style = 'plain'
+
+    [blocks.segments.properties]
+      style = 'full'
+
+  [[blocks.segments]]
+    type = 'git'
+    style = 'plain'
+    foreground = '#6C6C6C'
+    background = 'transparent'
+    template = ' {{ .HEAD }}{{ if or (.Working.Changed) (.Staging.Changed) }}*{{end}} <cyan>{{ if gt .Behind 0 }}↓{{ end }}{{ if gt .Ahead 0 }}↑{{ end }}</>' 
+
+    [blocks.segments.properties]
+      branch_icon = ''
+      commit_icon = '@'
+      fetch_status = true
+
+[[blocks]]
+  type = 'prompt'
+  alignment = 'left'
+  newline = true
+
+  [[blocks.segments]]
+    template = '  ' # 󰘍
+    foreground = 'p:magenta'
+    foreground_templates = [
+      "{{if gt .Code 0}}red{{end}}",
+      "{{if eq .Code 0}}magenta{{end}}",
+    ]
+    background = 'transparent'
+    type = 'text'
+    style = 'plain'
+
+[transient_prompt]
+  foreground_templates = [
+    "{{if gt .Code 0}}red{{end}}",
+    "{{if eq .Code 0}}magenta{{end}}",
+  ]
+  background = 'transparent'
+  template = '  '

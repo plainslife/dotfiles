@@ -1,0 +1,192 @@
+{
+    "layer": "top",
+    "spacing": 0,
+    "height": 0,
+    "start_hidden": true,
+    "reload_style_on_change": true,
+
+    "modules-left": [
+        // "custom/icon",
+        "hyprland/workspaces",
+        "hyprland/window"
+        // "cpu",
+        // "memory",
+        // "temperature"
+    ],
+
+    "modules-center": [
+        "clock"
+    ],
+
+    "modules-right": [
+        // "tray",
+        // "power-profiles-daemon",
+        // "backlight",
+        // "custom/powermenu", 
+        "custom/wallpaper",
+        "network",
+        "bluetooth",
+        "wireplumber",
+        // "pulseaudio",
+        "battery"
+    ],
+
+
+    "custom/wallpaper": {
+        "format": "",
+        "interval": 30, // Remove this if your script is endless and write in loop
+        "tooltip": false,
+        "cursor": 60, // gdk cursor type 60 -> pointer
+        "on-click": "~/.config/hypr/scripts/swww_randomize.sh"
+    },
+
+
+    "custom/powermenu": {
+        "format" : "⏻ ",
+		"tooltip": false,
+		"on-click": "~/.config/rofi/powermenu/type-1/powermenu.sh",
+    },
+
+    "bluetooth": {
+        "format": " {status}",
+        "format-connected": "󰂱 {device_alias}",
+        "format-connected-battery": "󰂱 {device_alias} {device_battery_percentage}%",
+        "format-on": "",
+        "format-off": "󰂲",
+        "tooltip": false,
+        // "on-click": "rofi-bluetooth"
+    },
+
+    "hyprland/window": {
+        "format": "{initialTitle}",
+        "icon": true,
+        "icon-size": 15,
+        "rewrite": { // no window focused
+          "^$": "󰟀 Desktop"
+        }
+    },
+
+    // 󱓼󱓻, 󰄶󰄷, 󰚕󰬸,_,
+    "hyprland/workspaces": {
+        "format": " {icon} ",
+        "cursor": 60, // gdk cursor type 60 -> pointer
+        "disable-scroll": true,
+        "tooltip": false,
+        "format-icons": {
+                "1": "󱓻",
+                "2": "󱓻", 
+                "3": "󱓻",
+                "4": "󱓻",
+                "5": "󱓻",
+                "active": "_",
+                "default": "󱓻"
+        },
+        "persistent-workspaces": {
+		"*": 3, 
+        }
+    },
+
+    "tray": {
+        "icon-size": 15,
+        "show-passive-items": true,
+        "expand": true,
+        "spacing": 10,
+        "tooltip": false
+    },
+
+    "clock": {
+        "format": "{:%a, %d %b %Y - %I:%M %p}",
+        "tooltip": false
+    },
+
+    "temperature": {
+        "hwmon-path": "/sys/devices/platform/dell_smm_hwmon/hwmon/hwmon3/temp1_input",
+        "critical-threshold": 80,
+        "format": "{icon} {temperatureC}°C",
+        "format-icons": ["", "", "", "", ""],
+	"interval": 5
+    },
+
+    "cpu": {
+        "format": "{icon}  {usage}%",
+	"format-icons": [""],
+        "interval": 2,
+        "states": {
+            "critical": 90
+        }
+    },
+
+    "memory": {
+        "format": "{icon}  {percentage}%",
+        "format-icons": [""],
+	"interval": 2,
+        "states": {
+            "critical": 80
+        }
+    },
+
+    "battery": {
+        "format": "{icon} {capacity}%",
+        "format-charging": " {capacity}%" ,
+        "format-plugged": " {capacity}%",
+        "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+        "interval": 5,
+        "states": {
+            "warning": 20,
+            "critical": 10
+        },
+        "tooltip": false
+    },
+
+    "network": {
+        "format-wifi" : "{icon}  {bandwidthDownBits} | {bandwidthUpBits}",
+        "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
+        "format-ethernet": "  {bandwidthDownBits}",
+        "format-disconnected" : "󰤮 ",
+        "interval": 5,
+        "tooltip": false
+        // "on-click": "kitty --title nmtui -e nmtui",
+    },
+
+    "backlight": {
+        "format": "{icon}  {percent}%",
+	"format-icons": [""]
+
+    },
+    
+    "power-profiles-daemon": {
+      "format": "{icon} ",
+      "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+      "tooltip": true,
+      "format-icons": {
+        "default": " ",
+        "performance": "",
+        "balanced": "",
+        "power-saver": ""
+      }
+    },
+
+    "wireplumber": {
+        "max-volume": 150,
+        "format": "{icon} {volume}%",
+        "format-muted": "󰸈",
+        "format-icons": ["󰕿", "󰖀", "󰕾"],
+        "tooltip": false
+    },
+
+    "pulseaudio": {
+        "scroll-step": 5,
+        "max-volume": 150,
+        "format": "{icon} {volume}%",
+        "format-mute": "󰸈",
+        "format-icons": ["󰕿", "󰖀", "󰕾"],
+        "nospacing": 1,
+        "tooltip": false
+    },
+
+    "custom/icon": {
+	"format": " 󰣇 ",
+	"tooltip": false,
+	"on-click": "wlogout --protocol layer-shell"
+    }
+}
