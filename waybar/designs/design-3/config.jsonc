@@ -1,0 +1,119 @@
+{
+    "layer": "top",
+    "spacing": 0,
+    "height": 0,
+    "start_hidden": true,
+    "reload_style_on_change": true,
+
+    "modules-left": [
+        "hyprland/workspaces",
+        "clock",
+        "custom/wallpaper"
+    ],
+
+    "modules-center": [
+        "hyprland/window"
+    ],
+
+    "modules-right": [
+        "network",
+        "bluetooth",
+        "wireplumber",
+        // "pulseaudio",
+        "battery"
+    ],
+
+    "custom/wallpaper": {
+        "format": "",
+        "interval": 30, // Remove this if your script is endless and write in loop
+        "tooltip": false,
+        "cursor": 60, // gdk cursor type 60 -> pointer
+        "on-click": "~/.config/hypr/scripts/swww_randomize.sh"
+    },
+
+    "bluetooth": {
+        "format": " {status}",
+        "format-connected": "󰂱 {device_alias}",
+        "format-connected-battery": "󰂱 {device_alias} {device_battery_percentage}%",
+        "format-on": "",
+        "format-off": "󰂲",
+        "tooltip": false,
+        // "on-click": "rofi-bluetooth"
+    },
+
+    "hyprland/window": {
+        "format": "{initialTitle}",
+        "icon": true,
+        "icon-size": 15,
+        "rewrite": { // no window focused
+          "^$": "󰟀  Desktop"
+        }
+    },
+
+    // 󱓼󱓻, 󰄶󰄷, 󰚕󰬸,_,
+    "hyprland/workspaces": {
+        "format": " {icon} ",
+        "cursor": 60, // gdk cursor type 60 -> pointer
+        "disable-scroll": true,
+        "tooltip": false,
+        "format-icons": {
+                "1": "",
+                "2": "", 
+                "3": "",
+                "4": "",
+                "5": "",
+                "active": "",
+                "default": ""
+        },
+        "persistent-workspaces": {
+		"*": 3, 
+        }
+    },
+
+    "clock": {
+        "format": "{:%a, %d %b %Y - %I:%M %p}",
+        "tooltip": false
+    },
+
+    "battery": {
+        "format": "{icon} {capacity}%",
+        "format-charging": " {capacity}%" ,
+        "format-plugged": " {capacity}%",
+        "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+        "format-time": "{H}:{M}",
+        "interval": 5,
+        "states": {
+            "warning": 25,
+            "critical": 15
+        },
+        "tooltip": false
+    },
+
+    "network": {
+        "format-wifi" : "{icon}  {bandwidthDownBits} | {bandwidthUpBits}",
+        "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
+        "format-ethernet": "  {bandwidthDownBits}",
+        "format-disconnected" : "󰤮 ",
+        "interval": 5,
+        "tooltip": false
+        // "on-click": "kitty --title nmtui -e nmtui",
+    },
+
+    "wireplumber": {
+        "max-volume": 150,
+        "format": "{icon} {volume}%",
+        "format-muted": "󰸈",
+        "format-icons": ["󰕿", "󰖀", "󰕾"],
+        "tooltip": false
+    },
+
+    "pulseaudio": {
+        "scroll-step": 5,
+        "max-volume": 150,
+        "format": "{icon} {volume}%",
+        "format-mute": "󰸈",
+        "format-icons": ["󰕿", "󰖀", "󰕾"],
+        "nospacing": 1,
+        "tooltip": false
+    },
+}

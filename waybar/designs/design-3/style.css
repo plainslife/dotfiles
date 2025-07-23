@@ -1,0 +1,125 @@
+* {
+    border: none;
+    border-radius: 0;
+    min-height: 0;
+    font-family: "JetBrainsMono Nerd Font";
+    font-weight: 500;
+    font-size: 14px;
+    padding: 0;
+}
+
+#window,
+window#waybar.empty #window {
+    background-color: #1d2021;
+    padding-right: 7px;
+    padding-left: 7px;
+    color: #458588;
+    border: 2px solid #376A6D;
+    margin: 6px 6px 6px 6px;
+    box-shadow: 5px 5px 0px black;
+}
+
+
+window#waybar {
+    background: #1d2021;
+    border: 2px solid #3c3836;
+    box-shadow: none;
+}
+
+#battery,
+#network,
+#bluetooth,
+#wireplumber,
+#pulseaudio {
+    margin: 6px 6px 6px 7px;
+    padding: 2px 8px;
+}
+
+#workspaces {
+    background-color: #282828;
+    padding-left: 5px;
+    padding-right: 5px;
+    margin: 6px 10px 6px 6px;
+    border: 2px solid #376A6D;
+    box-shadow: 5px 5px 0px black;
+}
+
+#workspaces button {
+    box-shadow: none;
+    color: #A89984;
+}
+
+#workspaces button:hover {
+    background: transparent;
+    color: #458588;
+}
+
+#workspaces button.active {
+    box-shadow: none;
+    color: #458588;
+}
+
+#clock {
+    background-color: #282828;
+    color: #BDAE93;
+    margin: 6px 10px 6px 6px;
+    border: 2px solid #376A6D;
+    padding: 2px 8px;
+    box-shadow: 5px 5px 0px black;
+}
+
+#custom-wallpaper {
+    background-color: #282828;
+    color: #BDAE93;
+    margin: 6px 6px 6px 6px;
+    padding: 2px 12px 2px 8px;
+    border: 2px solid #376A6D;
+    box-shadow: 5px 5px 0px black;
+}
+
+#custom-wallpaper:hover {
+  color: #458588;
+}
+
+#battery {
+    background-color: #1d2021;
+    color: #689D6A;
+    border: 2px solid #507A5C;
+    box-shadow: 5px 5px 0px black;
+}
+
+#battery.warning {
+    background-color: #1d2021;
+    color: #98971A;
+    border: 2px solid #7A7915;
+}
+
+#battery.critical,
+#battery.urgent {
+    background-color: #1d2021;
+    color: #cc241d;
+    border: 2px solid #A31D17;
+}
+
+#wireplumber,
+#pulseaudio {
+    background-color: #1d2021;
+    color: #D79921;
+    border: 2px solid #AC7A1A;
+    box-shadow: 5px 5px 0px black;
+}
+
+#bluetooth {
+    background-color: #1d2021;
+    border: 2px solid #376A6D;
+    box-shadow: 5px 5px 0px black;
+    color: #458588;
+}
+
+#network {
+    background-color: #1d2021;
+    color: #B16286;
+    border: 2px solid #80405D;
+    box-shadow: 5px 5px 0px black;
+}
+
