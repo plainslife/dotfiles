@@ -17,49 +17,20 @@ window#waybar.empty #window {
     box-shadow: inset 0px 0px 7px 1px rgba(0, 0, 0, 1);
 }
 
-
 window#waybar {
     background: #1d2021;
     border: 2px solid #3c3836;
     box-shadow: inset 0px 0px 7px 1px rgba(0, 0, 0, 0.3);
 }
 
-tooltip {
-    background-color: #1d2021;
-    border: 2px solid #7c6f64;
-}
-
-#custom-powermenu {
-    margin: 6px 6px 6px 0px;
-    padding: 2px 4px 2px 8px;
-    background-color: #cc241d;
-    border: 3px solid #5C100D;
-    color: #1d2021;
-}
-
 #clock,
-#tray,
 #battery,
-#power-profiles-daemon,
 #network,
-#backlight,
 #bluetooth,
 #wireplumber,
 #pulseaudio {
     margin: 6px 6px 6px 0px;
     padding: 2px 8px;
-}
-
-#cpu,
-#memory,
-#temperature {
-    margin: 6px 0px 6px 6px;
-    padding: 2px 8px;
-}
-
-#custom-icon {
-    margin: 6px 0px 6px 6px;
-    padding: 0px 3px 0px 0px;
 }
 
 #workspaces {
@@ -79,21 +50,11 @@ tooltip {
     color: #458588;
 }
 
-#workspaces button.urgent {
-    background-color: #e78a4e;
-}
-
-#custom-icon,
 #clock {
     background-color: #303536;
     border: 2px solid #458588;
     color: #A89984;
     box-shadow: inset 0px 0px 7px 1px rgba(0, 0, 0, 0.7);
-}
-
-#tray {
-    background-color: #d4be98;
-    border: 2px solid #c7ab7a;
 }
 
 #battery {
@@ -127,24 +88,6 @@ tooltip {
     box-shadow: inset 0px 0px 5px 3px rgba(0, 0, 0, 0.7);
     margin: 6px 6px 6px 6px;
     padding: 2px 12px 2px 8px;
-}
-
-
-#cpu,
-#memory,
-#temperature,
-#backlight,
-#power-profiles-daemon {
-    background-color: #C7AB7A;
-    color: #303536;
-    box-shadow: inset 0px 0px 5px 3px rgba(0, 0, 0, 0.7);
-}
-
-#cpu.critical,
-#memory.critical {
-    background-color: #ddc7a1;
-    border: 2px solid #c7ab7a;
-    color: #c14a4a;
 }
 
 #battery.warning,

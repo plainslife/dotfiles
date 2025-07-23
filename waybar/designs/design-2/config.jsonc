@@ -6,12 +6,8 @@
     "reload_style_on_change": true,
 
     "modules-left": [
-        // "custom/icon",
         "hyprland/workspaces",
         "hyprland/window"
-        // "cpu",
-        // "memory",
-        // "temperature"
     ],
 
     "modules-center": [
@@ -19,18 +15,12 @@
     ],
 
     "modules-right": [
-        // "tray",
-        // "power-profiles-daemon",
-        // "backlight",
-        // "custom/powermenu", 
         "custom/wallpaper",
         "network",
         "bluetooth",
         "wireplumber",
-        // "pulseaudio",
         "battery"
     ],
-
 
     "custom/wallpaper": {
         "format": "",
@@ -38,13 +28,6 @@
         "tooltip": false,
         "cursor": 60, // gdk cursor type 60 -> pointer
         "on-click": "~/.config/hypr/scripts/swww_randomize.sh"
-    },
-
-
-    "custom/powermenu": {
-        "format" : "⏻ ",
-		"tooltip": false,
-		"on-click": "~/.config/rofi/powermenu/type-1/powermenu.sh",
     },
 
     "bluetooth": {
@@ -86,43 +69,9 @@
         }
     },
 
-    "tray": {
-        "icon-size": 15,
-        "show-passive-items": true,
-        "expand": true,
-        "spacing": 10,
-        "tooltip": false
-    },
-
     "clock": {
         "format": "{:%a, %d %b %Y - %I:%M %p}",
         "tooltip": false
-    },
-
-    "temperature": {
-        "hwmon-path": "/sys/devices/platform/dell_smm_hwmon/hwmon/hwmon3/temp1_input",
-        "critical-threshold": 80,
-        "format": "{icon} {temperatureC}°C",
-        "format-icons": ["", "", "", "", ""],
-	"interval": 5
-    },
-
-    "cpu": {
-        "format": "{icon}  {usage}%",
-	"format-icons": [""],
-        "interval": 2,
-        "states": {
-            "critical": 90
-        }
-    },
-
-    "memory": {
-        "format": "{icon}  {percentage}%",
-        "format-icons": [""],
-	"interval": 2,
-        "states": {
-            "critical": 80
-        }
     },
 
     "battery": {
@@ -148,24 +97,6 @@
         // "on-click": "kitty --title nmtui -e nmtui",
     },
 
-    "backlight": {
-        "format": "{icon}  {percent}%",
-	"format-icons": [""]
-
-    },
-    
-    "power-profiles-daemon": {
-      "format": "{icon} ",
-      "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
-      "tooltip": true,
-      "format-icons": {
-        "default": " ",
-        "performance": "",
-        "balanced": "",
-        "power-saver": ""
-      }
-    },
-
     "wireplumber": {
         "max-volume": 150,
         "format": "{icon} {volume}%",
@@ -183,10 +114,4 @@
         "nospacing": 1,
         "tooltip": false
     },
-
-    "custom/icon": {
-	"format": " 󰣇 ",
-	"tooltip": false,
-	"on-click": "wlogout --protocol layer-shell"
-    }
 }
