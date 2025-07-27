@@ -7,7 +7,6 @@
 
     "modules-left": [
         "clock",
-        "custom/wallpaper",
         "hyprland/window"
     ],
 
@@ -25,7 +24,7 @@
 
     "custom/wallpaper": {
         "format": "",
-        "interval": 30, // Remove this if your script is endless and write in loop
+        "interval": 30, 
         "tooltip": false,
         "cursor": 60, // gdk cursor type 60 -> pointer
         "on-click": "~/.config/hypr/scripts/swww_randomize.sh"
