@@ -6,13 +6,13 @@
     "reload_style_on_change": true,
 
     "modules-left": [
-        "hyprland/workspaces",
         "clock",
-        "custom/wallpaper"
+        "custom/wallpaper",
+        "hyprland/window"
     ],
 
     "modules-center": [
-        "hyprland/window"
+        "hyprland/workspaces"
     ],
 
     "modules-right": [
@@ -50,20 +50,20 @@
         }
     },
 
-    // 󱓼󱓻, 󰄶󰄷, 󰚕󰬸,_,
+    // 󱓼󱓻, 󰄶󰄷, 󰚕󰬸,_,,口_口
     "hyprland/workspaces": {
         "format": " {icon} ",
         "cursor": 60, // gdk cursor type 60 -> pointer
         "disable-scroll": true,
         "tooltip": false,
         "format-icons": {
-                "1": "",
-                "2": "", 
-                "3": "",
-                "4": "",
-                "5": "",
-                "active": "",
-                "default": ""
+                "1": "",
+                "2": "", 
+                "3": "",
+                "4": "",
+                "5": "",
+                "active": "",
+                "default": ""
         },
         "persistent-workspaces": {
 		"*": 3, 
@@ -76,17 +76,26 @@
     },
 
     "battery": {
-        "format": "{icon} {capacity}%",
-        "format-charging": " {capacity}%" ,
-        "format-plugged": " {capacity}%",
-        "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
-        "format-time": "{H}:{M}",
-        "interval": 5,
         "states": {
-            "warning": 25,
-            "critical": 15
+          "warning": 25,
+          "critical": 15
         },
-        "tooltip": false
+        "tooltip": false,
+        "format": "󱊣 {icon} {capacity}%",
+        "format-charging": "󱊦 {icon} {capacity}%",
+        "interval": 5,
+        "format-icons": [
+          "[█░░░░░░░░░]", 
+          "[██░░░░░░░░]", 
+          "[███░░░░░░░]", 
+          "[████░░░░░░]", 
+          "[█████░░░░░]", 
+          "[██████░░░░]", 
+          "[███████░░░]", 
+          "[████████░░]", 
+          "[█████████░]", 
+          "[██████████]"  
+        ]
     },
 
     "network": {
@@ -100,11 +109,18 @@
     },
 
     "wireplumber": {
-        "max-volume": 150,
         "format": "{icon} {volume}%",
         "format-muted": "󰸈",
-        "format-icons": ["󰕿", "󰖀", "󰕾"],
-        "tooltip": false
+        "format-bluetooth": "{icon} {volume}%",
+        "tooltip": false,
+        "format-icons": [
+          "󰕿 [░░░░░]", 
+          "󰖀 [█░░░░]", 
+          "󰖀 [██░░░]", 
+          "󰕾 [███░░]", 
+          "󰕾 [████░]", 
+          "󱄡 [█████]"  
+        ]
     },
 
     "pulseaudio": {
