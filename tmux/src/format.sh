@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-if [[ "$default_statusline" == true ]]; then
+if [[ "$transparent" -eq 0 ]]; then
   # minimal format 
   tmux set -g window-status-current-format "#{?window_zoomed_flag,#[bg=${WINDOW_ACTIVE_BG}]#[fg=${WINDOW_ACTIVE_FG}] 󰄶 #W$window_focus_index󱇬 ,#[bg=${WINDOW_ACTIVE_BG}]#[fg=${WINDOW_ACTIVE_FG}] 󰄶 #W$window_focus_index }"
   tmux set -g window-status-format "#[fg=${WINDOW_FG}]#[bg=${WINDOW_BG}] 󰄷 #W$window_index "

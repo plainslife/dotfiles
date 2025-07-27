@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# NOTE: still working/playing on it/
+# NOTE: still working/playing on it
 
 # ===========================================================
 # title:      tmux-min                                      |
@@ -22,9 +22,7 @@ separator="$(tmux show-option -gqv @mystatusline-separator)"
 transparent=${transparent:-0}
 show_username=${show_username:-1}
 show_uptime=${show_uptime:-1}
-separator=${separator:-none}
-default_statusline=true
-
+separator=${separator:-""}
 
 # ======================
 
@@ -38,22 +36,21 @@ default_statusline=true
 
 # ======================
 
-# prefix
+# prefix -> not sure about this just playing around
 # b -> beginning section of the statusline
 # m -> middle section of the statusline
 # l -> last section of the statusline
 
-separator_l_left="" 
-separator_l_right=""
+sep_lleft=""
+sep_lright=""
 
 # window index style
 window_id_focus="fill"
 window_id="hollow"
 
-if [ "$separator" != "none" ]; then
-  default_statusline=false
-  sep_lleft=" "
-  sep_lright=" "
+if [ -z "$separator" && "$transparent" -eq 0 ]; then
+  sep_lleft=""
+  sep_lright=""
 fi
 
 # current window index focus

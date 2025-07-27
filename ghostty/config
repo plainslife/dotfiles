@@ -1,10 +1,10 @@
 title=ghostty
-theme = GruvboxDarkHard
+theme = GruvboxDark
 font-family = JetBrainsMono Nerd Font
 font-style = Medium
 font-feature = "zero"
 
-background-opacity = 0.8
+background-opacity = 0.9
 # background-blur = 20
 
 window-padding-x = 0
