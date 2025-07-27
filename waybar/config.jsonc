@@ -11,7 +11,8 @@
     ],
 
     "modules-center": [
-        "hyprland/workspaces"
+        "hyprland/workspaces",
+        "custom/wallpaper"
     ],
 
     "modules-right": [
@@ -23,20 +24,22 @@
     ],
 
     "custom/wallpaper": {
-        "format": "",
+        "format": " ",
         "interval": 30, 
-        "tooltip": false,
+        "tooltip": true,
+        "tooltip-format": "random wallpaper",
         "cursor": 60, // gdk cursor type 60 -> pointer
         "on-click": "~/.config/hypr/scripts/swww_randomize.sh"
     },
 
     "bluetooth": {
         "format": " {status}",
-        "format-connected": "󰂱 {device_alias}",
-        "format-connected-battery": "󰂱 {device_alias} {device_battery_percentage}%",
+        "format-connected": "󰂱 ",
+        "format-connected-battery": "󰂱 {device_battery_percentage}%",
         "format-on": "",
         "format-off": "󰂲",
-        "tooltip": false,
+        "tooltip": true,
+        "tooltip-format-connected": "{device_alias}"
         // "on-click": "rofi-bluetooth"
     },
 
@@ -98,12 +101,15 @@
     },
 
     "network": {
-        "format-wifi" : "{icon}  {bandwidthDownBits} | {bandwidthUpBits}",
+        "format-wifi" : "{icon}  {bandwidthDownBits} ↓ {bandwidthUpBits} ↑",
         "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
         "format-ethernet": "  {bandwidthDownBits}",
-        "format-disconnected" : "󰤮 ",
-        "interval": 5,
-        "tooltip": false
+        "format-disconnected" : "󰤭 ",
+        "interval": 1,
+        "tooltip": true,
+        "tooltip-format": "",
+        "tooltip-format-wifi": "󰖩 {essid}",
+        "tooltip-format-ethernet": " {essid}"
         // "on-click": "kitty --title nmtui -e nmtui",
     },
 
