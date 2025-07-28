@@ -11,6 +11,7 @@
     ],
 
     "modules-center": [
+        "custom/mic",
         "hyprland/workspaces",
         "custom/wallpaper"
     ],
@@ -22,6 +23,14 @@
         // "pulseaudio",
         "battery"
     ],
+
+    "custom/mic": {
+        "tooltip": false,
+        "format": "{}",
+        "exec": "pactl get-source-mute @DEFAULT_SOURCE@ | grep -q yes && echo  || echo ",
+        "on-click": "pactl set-source-mute @DEFAULT_SOURCE@ toggle",
+        "interval": 1
+    },
 
     "custom/wallpaper": {
         "format": " ",
@@ -59,16 +68,11 @@
         "disable-scroll": true,
         "tooltip": false,
         "format-icons": {
-                "1": "",
-                "2": "", 
-                "3": "",
-                "4": "",
-                "5": "",
-                "active": "",
-                "default": ""
+            "active": "",
+            "default": ""
         },
         "persistent-workspaces": {
-		"*": 3, 
+            "*": 3, 
         }
     },
 
@@ -101,11 +105,11 @@
     },
 
     "network": {
-        "format-wifi" : "{icon}  {bandwidthDownBits} ↓ {bandwidthUpBits} ↑",
+        "format-wifi" : "{icon}  {bandwidthDownBytes} ↓ {bandwidthUpBytes} ↑",
         "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
-        "format-ethernet": "  {bandwidthDownBits}",
+        "format-ethernet": "  {bandwidthDownBytes}",
         "format-disconnected" : "󰤭 ",
-        "interval": 1,
+        "interval": 5,
         "tooltip": true,
         "tooltip-format": "",
         "tooltip-format-wifi": "󰖩 {essid}",

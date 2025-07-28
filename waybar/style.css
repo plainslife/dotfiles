@@ -79,13 +79,17 @@ window#waybar.empty #window {
     padding: 2px 7px;
 }
 
+#custom-mic,
+#power-profiles-daemon,
 #custom-wallpaper {
     margin: 6px 3px 6px 6px;
+    padding: 2px 3px;
     color: #BDAE93;
     box-shadow: none;
     background: transparent;
 }
 
+#custom-mic:hover,
 #custom-wallpaper:hover {
   color: #458588;
 }
