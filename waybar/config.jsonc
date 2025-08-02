@@ -68,8 +68,8 @@
         "disable-scroll": true,
         "tooltip": false,
         "format-icons": {
-            "active": "",
-            "default": ""
+            "active": "ʕ•͓͡•ʔ",
+            "default": "ʕ•͓͡•ʔ"
         },
         "persistent-workspaces": {
             "*": 3, 
