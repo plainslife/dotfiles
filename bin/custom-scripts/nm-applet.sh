@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # run only one instance of nmtui
 if ! hyprctl clients | grep -q "title: nmtui" > /dev/null; then

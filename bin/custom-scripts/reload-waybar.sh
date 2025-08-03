@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # reload the waybar
 if pidof waybar > /dev/null; then
