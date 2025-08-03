@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-format_fill="󰼎󰼏󰼐󰼑󰼒󰼓󰼔󰼕󰼖󰼗"
-format_hollow="󰎢󰎥󰎨󰎫󰎲󰎯󰎴󰎷󰎺󰎽"
+format_active="󰼎󰼏󰼐󰼑󰼒󰼓󰼔󰼕󰼖󰼗" # active window
+format_inactive="󰎢󰎥󰎨󰎫󰎲󰎯󰎴󰎷󰎺󰎽" # inactive window
 
 ID=$1
 FORMAT=${2:-none}

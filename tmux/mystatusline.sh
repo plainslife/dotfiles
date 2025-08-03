@@ -44,20 +44,16 @@ separator=${separator:-""}
 sep_lleft=""
 sep_lright=""
 
-# window index style
-window_id_focus="fill"
-window_id="hollow"
-
-if [ -z "$separator" && "$transparent" -eq 0 ]; then
+if [[ -n "$separator" && "$transparent" -eq 0 ]]; then
   sep_lleft=""
   sep_lright=""
 fi
 
 # current window index focus
-window_focus_index="#($SCRIPTS_PATH/custom-index.sh #I $window_id_focus)"
+window_focus_index="#($SCRIPTS_PATH/custom-index.sh #I 'active')"
  
 # not current window index focus
-window_index="#($SCRIPTS_PATH/custom-index.sh #I $window_id)"
+window_index="#($SCRIPTS_PATH/custom-index.sh #I 'inactive')"
 
 source $SCRIPTS_PATH/palette.sh
 source $SCRIPTS_PATH/format.sh

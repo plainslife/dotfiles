@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 
-if [[ "$transparent" -eq 0 ]]; then
+# NOTE: 
+# transparent or no seperator use the minimal format
+
+if [[ "$transparent" -eq 1 || -z "$separator" ]]; then
   # minimal format 
   tmux set -g window-status-current-format "#{?window_zoomed_flag,#[bg=${WINDOW_ACTIVE_BG}]#[fg=${WINDOW_ACTIVE_FG}] 󰄶 #W$window_focus_index󱇬 ,#[bg=${WINDOW_ACTIVE_BG}]#[fg=${WINDOW_ACTIVE_FG}] 󰄶 #W$window_focus_index }"
   tmux set -g window-status-format "#[fg=${WINDOW_FG}]#[bg=${WINDOW_BG}] 󰄷 #W$window_index "
