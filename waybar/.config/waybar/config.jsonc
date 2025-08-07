@@ -1,0 +1,144 @@
+{
+    "layer": "top",
+    "spacing": 0,
+    "height": 0,
+    "start_hidden": true,
+    "reload_style_on_change": true,
+
+    "modules-left": [
+        "clock",
+        "hyprland/window"
+    ],
+
+    "modules-center": [
+        "custom/mic",
+        "hyprland/workspaces",
+        "custom/wallpaper"
+    ],
+
+    "modules-right": [
+        "network",
+        "bluetooth",
+        "wireplumber",
+        // "pulseaudio",
+        "battery"
+    ],
+
+    "custom/mic": {
+        "tooltip": false,
+        "format": "{}",
+        "exec": "wpctl get-volume @DEFAULT_AUDIO_SOURCE@ | grep -q MUTED && echo  || echo ",
+        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle",
+        "interval": 1
+    },
+
+    "custom/wallpaper": {
+        "format": " ",
+        "interval": 30, 
+        "tooltip": true,
+        "tooltip-format": "random wallpaper",
+        "cursor": 60, // gdk cursor type 60 -> pointer
+        "on-click": "~/.config/hypr/scripts/swww_randomize.sh"
+    },
+
+    "bluetooth": {
+        "format": " {status}",
+        "format-connected": "󰂱 ",
+        "format-connected-battery": "󰂱 {device_battery_percentage}%",
+        "format-on": "",
+        "format-off": "󰂲",
+        "tooltip": true,
+        "tooltip-format-connected": "{device_alias}"
+        // "on-click": "rofi-bluetooth"
+    },
+
+    "hyprland/window": {
+        "format": "{initialTitle}",
+        "icon": true,
+        "icon-size": 15,
+        "rewrite": { // no window focused
+          "^$": "󰟀  Desktop"
+        }
+    },
+
+    // 󱓼󱓻, 󰄶󰄷, 󰚕󰬸,_,,口_口
+    "hyprland/workspaces": {
+        "format": " {icon} ",
+        "cursor": 60, // gdk cursor type 60 -> pointer
+        "disable-scroll": true,
+        "tooltip": false,
+        "format-icons": {
+            "active": "ʕ•͓͡•ʔ",
+            "default": "ʕ•͓͡•ʔ"
+        },
+        "persistent-workspaces": {
+            "*": 3, 
+        }
+    },
+
+    "clock": {
+        "format": "{:%a, %d %b %Y - %I:%M %p}",
+        "tooltip": false
+    },
+
+    "battery": {
+        "states": {
+          "warning": 25,
+          "critical": 15
+        },
+        "tooltip": false,
+        "format": "󱊣 {icon} {capacity}%",
+        "format-charging": "󱊦 {icon} {capacity}%",
+        "interval": 5,
+        "format-icons": [
+          "[█░░░░░░░░░]", 
+          "[██░░░░░░░░]", 
+          "[███░░░░░░░]", 
+          "[████░░░░░░]", 
+          "[█████░░░░░]", 
+          "[██████░░░░]", 
+          "[███████░░░]", 
+          "[████████░░]", 
+          "[█████████░]", 
+          "[██████████]"  
+        ]
+    },
+
+    "network": {
+        "format-wifi" : "{icon}  {bandwidthDownBytes} ↓ {bandwidthUpBytes} ↑",
+        "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
+        "format-ethernet": "  {bandwidthDownBytes}",
+        "format-disconnected" : "󰤭 ",
+        "interval": 5,
+        "tooltip": true,
+        "tooltip-format": "",
+        "tooltip-format-wifi": "󰖩 {essid}",
+        "tooltip-format-ethernet": " {essid}"
+        // "on-click": "kitty --title nmtui -e nmtui",
+    },
+
+    "wireplumber": {
+        "format": "{icon} {volume}%",
+        "format-muted": "󰸈",
+        "format-bluetooth": "{icon} {volume}%",
+        "tooltip": false,
+        "format-icons": [
+          "󰕿 [░░░░░]", 
+          "󰖀 [█░░░░]", 
+          "󰖀 [██░░░]", 
+          "󰕾 [███░░]", 
+          "󰕾 [████░]", 
+          "󱄡 [█████]"  
+        ]
+    },
+
+    "pulseaudio": {
+        "scroll-step": 5,
+        "max-volume": 150,
+        "format": "{icon} {volume}%",
+        "format-mute": "󰸈",
+        "format-icons": ["󰕿", "󰖀", "󰕾"],
+        "nospacing": 1,
+        "tooltip": false
+    },
+}

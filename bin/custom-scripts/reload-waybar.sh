@@ -1,9 +1,0 @@
-#!/usr/bin/env bash
-
-# reload the waybar
-if pidof waybar > /dev/null; then
-    killall -SIGUSR2 waybar
-else # start waybar
-    notify-send "Starting Waybar"
-    waybar &
-fi
