@@ -38,7 +38,7 @@
         "tooltip": true,
         "tooltip-format": "random wallpaper",
         "cursor": 60, // gdk cursor type 60 -> pointer
-        "on-click": "~/.config/hypr/scripts/swww_randomize.sh"
+        "on-click": "waypaper --random"
     },
 
     "bluetooth": {
