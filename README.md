@@ -1,4 +1,6 @@
-# Plainsfiles
+# PlainsDots
+
+![plains-dots preview](./plains-dots.png)
 
 ### 🔧 Tools You'll Need
 
@@ -12,7 +14,7 @@ Before installing, make sure you have:
 Clone the repo into your `$HOME` directory:
 
 ```bash
-git clone https://github.com/plainslife/dotfiles.git ~/dotfiles
+git clone https://github.com/plainslife/plains-dots.git ~/dotfiles
 cd ~/dotfiles
 ```
 
