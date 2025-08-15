@@ -49,6 +49,7 @@
     icon_position = left
     min_icon_size = 24
     max_icon_size = 128
+    enable_recursive_icon_lookup = true
 
     ### mouse
     mouse_left_click = close_current
