@@ -41,11 +41,11 @@ toggle_scan() {
     if scan_on; then
         kill $(pgrep -f "bluetoothctl --timeout 5 scan on")
         bluetoothctl scan off
-        show_menu
+        device_list
     else
         bluetoothctl --timeout 5 scan on
         echo "Scanning..."
-        show_menu
+        device_list
     fi
 }
 
@@ -210,7 +210,7 @@ device_menu() {
     fi
     paired=$(device_paired "$mac")
     trusted=$(device_trusted "$mac")
-    options="$connected\n$paired\n$trusted\n$goback\nExit"
+    options="$connected\n$paired\n$trusted\n$goback"
 
     # Open rofi menu, read chosen option
     chosen="$(echo -e "$options" | $rofi_command "$device_name")"
@@ -232,15 +232,36 @@ device_menu() {
     esac
 }
 
+# opens a rofi menu with the available devices
+device_list() { 
+
+    # Human-readable names of devices, one per line
+    # If scan is off, will only list paired devices
+    devices=$(bluetoothctl devices | grep Device | cut -d ' ' -f 3-)
+    options="$goback\n$devices"
+    chosen="$(echo -e "$options" | $rofi_command "Bluetooth")"
+
+    case "$chosen" in 
+        "$devices")
+            device=$(bluetoothctl devices | grep "$chosen")
+            # Open a submenu if a device is selected
+            if [[ $device ]]; then device_menu "$device"; fi
+            ;;
+        "$goback")
+            show_menu
+            ;;
+        *)
+            exit 1 
+            ;;
+    esac
+
+}
+
 # Opens a rofi menu with current bluetooth status and options to connect
 show_menu() {
     # Get menu options
     if power_on; then
         power="Power: on"
-
-        # Human-readable names of devices, one per line
-        # If scan is off, will only list paired devices
-        devices=$(bluetoothctl devices | grep Device | cut -d ' ' -f 3-)
 
         # Get controller flags
         scan=$(scan_on)
@@ -248,7 +269,7 @@ show_menu() {
         discoverable=$(discoverable_on)
 
         # Options passed to rofi
-        options="$power\n$scan\n$pairable\n$discoverable\nExit\n$devices"
+        options="Device List\n$power\n$scan\n$pairable\n$discoverable"
     else
         power="Power: off"
         options="$power\nExit"
@@ -271,10 +292,11 @@ show_menu() {
         "$pairable")
             toggle_pairable
             ;;
+        "Device List")
+            device_list
+            ;;
         *)
-            device=$(bluetoothctl devices | grep "$chosen")
-            # Open a submenu if a device is selected
-            if [[ $device ]]; then device_menu "$device"; fi
+            exit 1
             ;;
     esac
 }
