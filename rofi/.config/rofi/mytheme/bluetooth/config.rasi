@@ -6,7 +6,7 @@ configuration {
 /*****----- Global Properties -----*****/
 * {
     font: "JetBrainsMono Nerd Font Normal Semi-Bold 10";
-    background:     #1d2021FF;
+    background:     #1F1F1F11;
     background-alt: #1d2021FF;
     foreground:     #A89984FF;
     selected:       #458588FF;
@@ -20,7 +20,7 @@ window {
     location:                    center;
     anchor:                      center;
     fullscreen:                  false;
-    width:                       700px;
+    width:                       450px;
     x-offset:                    0px;
     y-offset:                    0px;
 
@@ -39,11 +39,11 @@ mainbox {
     enabled:                     true;
     spacing:                     7px;
     margin:                      0px;
-    padding:                     0px;
-    border:                      0px solid;
+    padding:                     17px;
+    border:                      2px solid;
     border-radius:               0px;
-    border-color:                #376A6DFF;
-    background-color:            transparent;
+    border-color:                #A89984;
+    background-color:            #1F1F1FEE;
     children:                    [ "inputbar", "listview" ];
 }
 
@@ -53,14 +53,13 @@ inputbar {
     spacing:                     10px;
     margin:                      0px;
     padding:                     15px;
-    border:                      2px solid;
+    border:                      0px solid;
     border-radius:               0px;
-    border-color:                #3C3836FF;
-    background-color:            @background-alt;
+    border-color:                #8A8070;
+    background-color:            #28282855;
     text-color:                  @foreground;
     children:                    [ "prompt", "entry" ];
 }
-
 prompt {
     enabled:                     true;
     background-color:            inherit;
@@ -68,7 +67,7 @@ prompt {
 }
 entry {
     enabled:                     true;
-    background-color:            inherit;
+    background-color:            transparent;
     text-style:                  italic;
     text-color:                  inherit;
     placeholder:                 "Search...";
@@ -80,7 +79,7 @@ entry {
 /*****----- Listview -----*****/
 listview {
     enabled:                     true;
-    columns:                     2;
+    columns:                     1;
     lines:                       5;
     cycle:                       true;
     dynamic:                     true;
@@ -92,19 +91,13 @@ listview {
     
     spacing:                     7px;
     margin:                      0px;
-    padding:                     7px;
-    border:                      2px solid;
+    padding:                     0px;
+    border:                      0px solid;
     border-radius:               0px;
-    border-color:                #3C3836FF;
+    border-color:                #8A8070;
     background-color:            @background;
     text-color:                  @foreground;
     cursor:                      "default";
-}
-scrollbar {
-    handle-width:                5px ;
-    handle-color:                @selected;
-    border-radius:               0px;
-    background-color:            @background-alt;
 }
 
 /*****----- Elements -----*****/
@@ -116,27 +109,24 @@ element {
     border:                      0px solid;
     border-radius:               0px;
     border-color:                @selected;
-    background-color:            transparent;
+    background-color:            @background;
     text-color:                  @foreground;
     cursor:                      pointer;
     orientation:                 horizontal;
-    // children:                    [ element-icon, element-text ];
 }
 element normal.normal {
-    background-color:            @background;
+    background-color:            transparent;
+    text-color:                  @foreground;
+}
+element alternate.normal {
+    background-color:            transparent;
     text-color:                  @foreground;
 }
 element selected.normal {
-    background-color:            #282828FF;
-    border: 2px solid;
+    background-color:            #427E8177;
+    border: 0px solid;
     border-color: #376A6DFF;
     text-color:                  @foreground;
-}
-element-icon {
-    background-color:            transparent;
-    text-color:                  inherit;
-    size:                        32px;
-    cursor:                      inherit;
 }
 element-text {
     background-color:            transparent;
@@ -147,20 +137,4 @@ element-text {
     horizontal-align:            0.0;
 }
 
-/*****----- Message -----*****/
-error-message {
-    padding:                     5px;
-    border:                      2px solid;
-    border-radius:               2px;
-    border-color:                @background;
-    background-color:            @background;
-    text-color:                  @foreground;
-}
-textbox {
-    background-color:            @background;
-    text-color:                  @urgent;
-    border: 0px;
-    vertical-align:              0.5;
-    horizontal-align:            0.0;
-    highlight:                   none;
-}
+

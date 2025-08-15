@@ -9,7 +9,7 @@ configuration {
 /*****----- Global Properties -----*****/
 * {
     font: "JetBrainsMono Nerd Font Normal Semi-Bold 10";
-    background:     #1d2021FF;
+    background:     #1F1F1F11;
     background-alt: #1d2021FF;
     foreground:     #A89984FF;
     selected:       #458588FF;
@@ -42,11 +42,11 @@ mainbox {
     enabled:                     true;
     spacing:                     7px;
     margin:                      0px;
-    padding:                     0px;
-    border:                      0px solid;
+    padding:                     17px;
+    border:                      2px solid;
     border-radius:               0px;
-    border-color:                #376A6DFF;
-    background-color:            transparent;
+    border-color:                #A89984;
+    background-color:            #1F1F1FEE;
     children:                    [ "inputbar", "listview" ];
 }
 
@@ -56,10 +56,10 @@ inputbar {
     spacing:                     10px;
     margin:                      0px;
     padding:                     15px;
-    border:                      2px solid;
+    border:                      0px solid;
     border-radius:               0px;
-    border-color:                #3C3836FF;
-    background-color:            @background-alt;
+    border-color:                #8A8070;
+    background-color:            #28282855;
     text-color:                  @foreground;
     children:                    [ "prompt", "entry" ];
 }
@@ -78,7 +78,7 @@ textbox-prompt-colon {
 }
 entry {
     enabled:                     true;
-    background-color:            inherit;
+    background-color:            transparent;
     text-style:                  italic;
     text-color:                  inherit;
     placeholder:                 "Search...";
@@ -102,10 +102,10 @@ listview {
     
     spacing:                     7px;
     margin:                      0px;
-    padding:                     7px;
-    border:                      2px solid;
+    padding:                     0px;
+    border:                      0px solid;
     border-radius:               0px;
-    border-color:                #3C3836FF;
+    border-color:                #8A8070;
     background-color:            @background;
     text-color:                  @foreground;
     cursor:                      "default";
@@ -126,24 +126,24 @@ element {
     border:                      0px solid;
     border-radius:               0px;
     border-color:                @selected;
-    background-color:            transparent;
+    background-color:            @background;
     text-color:                  @foreground;
     cursor:                      pointer;
     orientation:                 horizontal;
     // children:                    [ element-icon, element-text ];
 }
 element normal.normal {
-    background-color:            @background;
+    background-color:            transparent;
     text-color:                  @foreground;
 }
 element selected.normal {
-    background-color:            #282828FF;
-    border: 2px solid;
+    background-color:            #427E8177;
+    border: 0px solid;
     border-color: #376A6DFF;
     text-color:                  @foreground;
 }
 element alternate.normal {
-    background-color:            @background;
+    background-color:            transparent;
     text-color:                  @foreground;
 }
 element-icon {
