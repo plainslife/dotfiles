@@ -222,7 +222,7 @@ device_menu() {
     options="$connected\n$paired\n$trusted\n$goback"
 
     # Open rofi menu, read chosen option
-    chosen="$(echo -e "$options" | $rofi_command "$device_name")"
+    chosen="$(echo -e "$options" | rofi_menu 4)"
 
     # Match chosen option to command
     case "$chosen" in
@@ -236,7 +236,7 @@ device_menu() {
             toggle_trust "$mac"
             ;;
         "$goback")
-            show_menu
+            device_list
             ;;
     esac
 }
