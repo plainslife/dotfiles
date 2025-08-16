@@ -2,6 +2,15 @@
 # Constants
 goback="Back"
 
+rofi_menu() { 
+    rofi \
+        -dmenu \
+        -i \
+        -p "󰂯" \
+        -l "$1" \
+        -theme $mytheme 
+}
+
 # Checks if bluetooth controller is powered on
 power_on() {
     if bluetoothctl show | grep -q "Powered: yes"; then
@@ -238,17 +247,23 @@ device_list() {
     # Human-readable names of devices, one per line
     # If scan is off, will only list paired devices
     devices=$(bluetoothctl devices | grep Device | cut -d ' ' -f 3-)
-    options="$goback\n$devices"
-    chosen="$(echo -e "$options" | $rofi_command "Bluetooth")"
+    options="$devices"
+    rows=5 # rows default to 5
+
+    available_devices=$(echo "$devices" | wc -l) # count the number of avaialble devices
+    if [[ $available_devices -lt 5 ]]; then  
+        rows=$available_devices
+    fi
+
+    chosen="$(echo -e "$options" | rofi_menu "$rows")"
 
     case "$chosen" in 
         "$devices")
             device=$(bluetoothctl devices | grep "$chosen")
             # Open a submenu if a device is selected
-            if [[ $device ]]; then device_menu "$device"; fi
-            ;;
-        "$goback")
-            show_menu
+            if [[ $device ]]; then 
+                device_menu "$device";
+            fi
             ;;
         *)
             exit 1 
@@ -270,13 +285,15 @@ show_menu() {
 
         # Options passed to rofi
         options="Device List\n$power\n$scan\n$pairable\n$discoverable"
+        rows=5
     else
         power="Power: off"
-        options="$power\nExit"
+        options="$power"
+        no_of_opts=1
     fi
 
     # Open rofi menu, read chosen option
-    chosen="$(echo -e "$options" | $rofi_command "Bluetooth")"
+    chosen="$(echo -e "$options" | rofi_menu "$rows")"
 
     # Match chosen option to command
     case "$chosen" in
