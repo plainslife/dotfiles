@@ -1,5 +1,11 @@
 require "nvchad.autocmds"
 
+-- use c++ syntax and highlighting for arduino sketch files
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+    pattern = "*.ino",
+    command = "set filetype=cpp"
+})
+
 -- Auto-set *.blade.php files to the "blade" filetype
 local tbl = vim.api.nvim_create_augroup -- short alias
 local blade_grp = tbl("BladeFiletypeRelated", { clear = true })
