@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 # Constants
 goback="Back"
+mytheme=~/.config/rofi/mytheme/bluetooth/config.rasi # my custom theme
 
+# dmenu
 rofi_menu() { 
     rofi \
         -dmenu \
@@ -289,7 +291,7 @@ show_menu() {
     else
         power="Power: off"
         options="$power"
-        no_of_opts=1
+        rows=1
     fi
 
     # Open rofi menu, read chosen option
@@ -317,12 +319,6 @@ show_menu() {
             ;;
     esac
 }
-
-# my custom theme
-mytheme=~/.config/rofi/mytheme/bluetooth/config.rasi
-
-# Rofi command to pipe into, can add any options here
-rofi_command="rofi -dmenu $* -p "󰂯" -theme $mytheme -i"
 
 case "$1" in
     --status)
